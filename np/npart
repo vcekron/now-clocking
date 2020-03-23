@@ -1,8 +1,6 @@
 #!/usr/bin/conky -d -c
-##	.conkyrc configuration
 alignment bottom_left
 background no
-border_margin 0
 border_inner_margin 0
 border_outer_margin 0
 border_width	0
@@ -14,12 +12,9 @@ draw_outline no
 draw_shades no
 gap_x 50
 gap_y 115
-max_specials 1024
 max_user_text 10000
 minimum_size 0 0
 maximum_width 125
-maximum_height 125
-#maximum_size 125 125
 net_avg_samples 2
 no_buffers yes
 override_utf8_locale yes
@@ -40,4 +35,4 @@ update_interval 1
 uppercase yes
 own_window_colour 000000
 TEXT
-${if_running spotify}${exec sh ~/Documents/spotifyart}${color #fff}${image ~/Pictures/npart.jpg -p 0,0 -s 125x125 -n}${font Gotham Book:pixelsize=9}                            ${voffset 112}${endif}${if_running cmus}${exec sh ~/Documents/cmusart}${color #fff}${image ~/Pictures/npart2.jpg -p 0,0 -s 125x125 -n}${font Gotham Book:pixelsize=9}                            ${voffset 112}${endif}
+${if_running spotify}${exec sh "$HOME/.config/conky/now-clocking/spotifyart"}${color #fff}${image ~/Pictures/npart.jpg -p 0,0 -s 125x125 -n}${font Gotham Book:pixelsize=9}                            ${voffset 112}${endif}${if_running cmus}${exec sh "$HOME/.config/conky/now-clocking/cmusart"}${color #fff}${image ~/Pictures/npart2.jpg -p 0,0 -s 125x125 -n}${font Gotham Book:pixelsize=9}                            ${voffset 112}${endif}
