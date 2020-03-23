@@ -26,8 +26,8 @@ own_window_transparent no
 own_window_class conky-semi
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 own_window_type desktop
-pad_percents 2			# to co nizej, miejsc po przecinku
-short_units yes			# krotka wersja podawania wielkosci dyskow np. 612.21M/3.80G
+pad_percents 2
+short_units yes
 stippled_borders 3
 text_buffer_size 8000
 total_run_times 0
@@ -35,4 +35,4 @@ update_interval 1
 uppercase yes
 own_window_colour 000000
 TEXT
-${if_running spotify}${exec sh "$HOME/.config/conky/now-clocking/spotifyart"}${color #fff}${image ~/Pictures/npart.jpg -p 0,0 -s 125x125 -n}${font Gotham Book:pixelsize=9}                            ${voffset 112}${endif}${if_running cmus}${exec sh "$HOME/.config/conky/now-clocking/cmusart"}${color #fff}${image ~/Pictures/npart2.jpg -p 0,0 -s 125x125 -n}${font Gotham Book:pixelsize=9}                            ${voffset 112}${endif}
+${if_running spotify}${exec sh "$HOME/.config/conky/now-clocking/scripts/spotifyart"}${color #fff}${image ~/Pictures/npart.jpg -p 0,0 -s 125x125 -n}${font Gotham Book:pixelsize=9}                            ${voffset 112}${endif}${if_running cmus}${exec sh "$HOME/.config/conky/now-clocking/scripts/cmusart"}${color #fff}${image ~/Pictures/npart2.jpg -p 0,0 -s 125x125 -n}${font Gotham Book:pixelsize=9}                            ${voffset 112}${endif}
