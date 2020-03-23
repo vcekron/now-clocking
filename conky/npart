@@ -11,7 +11,7 @@ draw_graph_borders no
 draw_outline no
 draw_shades no
 gap_x 50
-gap_y 115
+gap_y 125
 max_user_text 10000
 minimum_size 0 0
 maximum_width 125
@@ -35,4 +35,15 @@ update_interval 1
 uppercase yes
 own_window_colour 000000
 TEXT
-${if_running spotify}${exec sh "$HOME/.config/conky/now-clocking/scripts/spotifyart"}${color #fff}${image ~/Pictures/npart.jpg -p 0,0 -s 125x125 -n}${font Gotham Book:pixelsize=9}                            ${voffset 112}${endif}${if_running cmus}${exec sh "$HOME/.config/conky/now-clocking/scripts/cmusart"}${color #fff}${image ~/Pictures/npart2.jpg -p 0,0 -s 125x125 -n}${font Gotham Book:pixelsize=9}                            ${voffset 112}${endif}
+${if_running spotify}${exec sh "$HOME/.config/conky/now-clocking/scripts/spotifyart"}
+${color #fff}
+${image ~/Pictures/npart.jpg -p 0,0 -s 125x125 -n}
+${font Gotham Book:pixelsize=9}                            ${voffset 43}
+${endif}
+
+${if_running cmus}
+${exec sh "$HOME/.config/conky/now-clocking/scripts/cmusart"}
+${color #fff}
+${image ~/Pictures/npart2.jpg -p 0,0 -s 125x125 -n}
+${font Gotham Book:pixelsize=9}                            ${voffset 43}
+${endif}

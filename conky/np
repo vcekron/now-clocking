@@ -2,7 +2,6 @@
 ##	.conkyrc configuration
 alignment bottom_left
 background no
-border_margin 5
 border_width 5
 cpu_avg_samples 2
 double_buffer yes
@@ -12,7 +11,6 @@ draw_outline no
 draw_shades no
 gap_x 50
 gap_y 110
-max_specials 1024
 max_user_text 10000
 minimum_size 0 0
 maximum_width 1270
@@ -27,8 +25,8 @@ own_window_transparent yes
 own_window_class conky-semi
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 own_window_type desktop
-pad_percents 2			# to co nizej, miejsc po przecinku
-short_units yes			# krotka wersja podawania wielkosci dyskow np. 612.21M/3.80G
+pad_percents 2
+short_units yes
 stippled_borders 3
 text_buffer_size 8000
 total_run_times 0
@@ -39,20 +37,13 @@ use_xft yes
 xftalpha 1
 xftfont Freesans:pixelsize=9
 
-lua_load /home/didisoft/.conky/lua.lua
-
-# ${diskiograph /dev/sda 15,180 a7a7a7 a7a7a7} # wskaznik pracy dysku
-# ${image /home/didisoft/.conky/didisoft.jpg -p 0,80 -s 26x28} # obrazki w conky
 own_window_colour 000000
 TEXT
 
 ${if_running spotify}
 
-#${exec sh ~/Documents/spotifyart}
-#${image ~/Pictures/npart.jpg -p 0,70 -s 125x125 -n}
 ${color #fff}${font Gotham Book:pixelsize=18}NOW PLAYING:
 ${color #fff}${font Gotham Book:pixelsize=15}
-
 
 ${color #fff}${font Gotham Bold:pixelsize=44}           ${font Gotham Bold:pixelsize=46}${exec echo `dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'Metadata'|egrep -A 2 "artist"|egrep -v "artist"|egrep -v "array"|cut -b 27-|cut -d '"' -f 1|egrep -v ^$`}${font Gotham Bold:pixelsize=10}
 ${color #fff}${font Gotham Book:pixelsize=44}           ${font Gotham Book:pixelsize=23}${exec echo `dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'Metadata'|egrep -A 1 "title"|egrep -v "title"|cut -b 44-|cut -d '"' -f 1|egrep -v ^$`}
@@ -61,7 +52,6 @@ ${else}
 ${if_running cmus}
 ${color #fff}${font Gotham Book:pixelsize=18}NOW PLAYING:
 ${color #fff}${font Gotham Book:pixelsize=15}
-
 
 ${color #fff}${font Gotham Bold:pixelsize=44}           ${font Gotham Bold:pixelsize=46}${exec cmus-remote -Q 2>/dev/null | grep 'tag artist' | cut -d " " -f 3-}${font Gotham Bold:pixelsize=10}
 ${color #fff}${font Gotham Bold:pixelsize=44}           ${font Gotham Book:pixelsize=23}${exec cmus-remote -Q 2>/dev/null | grep title | cut -d " " -f 3- }
