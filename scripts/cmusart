@@ -1,10 +1,20 @@
 #!/bin/sh
 
-url=`cmus-remote -Q 2>/dev/null | grep 'file' | cut -d " " -f 2-`
+data_dir="$(dirname "$0")/data"
+data_file="$data_dir/cmus-art"
+data_img="$HOME/Pictures/npart2.jpg"
 
-content=$(cat ~/Pictures/npart2.txt)
+if [ ! -d "$data_dir" ]; then
+    mkdir "$data_dir"
+fi
+
+touch "$data_file"
+
+
+url="$(cmus-remote -Q 2>/dev/null | grep 'file' | cut -d " " -f 2-)"
+content="$(cat "$data_file")"
 
 if [ "$content" != "$url" ]; then
-echo $url > ~/Pictures/npart2.txt
-ffmpeg -y -i "$url" -an -vcodec copy ~/Pictures/npart2.jpg
+    echo "$url" > "$data_file"
+    ffmpeg -y -i "$url" -an -vcodec copy "$data_img"
 fi

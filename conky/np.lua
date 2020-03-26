@@ -1,52 +1,53 @@
-#!/usr/bin/conky -d -c
-##	.conkyrc configuration
-alignment bottom_left
-background no
-border_width 5
-cpu_avg_samples 2
-double_buffer yes
-draw_borders no
-draw_graph_borders no
-draw_outline no
-draw_shades no
-gap_x 50
-gap_y 110
-max_user_text 10000
-minimum_size 0 0
-maximum_width 1270
-net_avg_samples 2
-no_buffers yes
-override_utf8_locale yes
-#Setup Windows
-own_window yes
-own_window_argb_visual yes
-own_window_argb_value 0
-own_window_transparent yes
-own_window_class conky-semi
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-own_window_type desktop
-pad_percents 2
-short_units yes
-stippled_borders 3
-text_buffer_size 8000
-total_run_times 0
-update_interval 1
-uppercase yes
-use_spacer right
-use_xft yes
-xftalpha 1
-xftfont Freesans:pixelsize=9
+conky.config = {
+	alignment = 'bottom_left',
+	background = false,
+	border_width = 5,
+	cpu_avg_samples = 2,
+	double_buffer = true,
+	draw_borders = false,
+	draw_graph_borders = false,
+	draw_outline = false,
+	draw_shades = false,
+	gap_x = 50,
+	gap_y = 110,
+	max_user_text = 10000,
+	minimum_width = 1270,
+	maximum_width = 1270,
+	net_avg_samples = 2,
+	no_buffers = true,
+	override_utf8_locale = true,
+--Setup Windows
+	own_window = true,
+	own_window_argb_visual = true,
+	own_window_argb_value = 0,
+	own_window_transparent = true,
+	own_window_class = 'conky-semi',
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_type = 'desktop',
+	pad_percents = 2,
+	short_units = true,
+	stippled_borders = 3,
+	text_buffer_size = 8000,
+	total_run_times = 0,
+	update_interval = 1,
+	uppercase = true,
+	use_spacer = 'right',
+	use_xft = true,
+	xftalpha = 1,
+	font = 'Freesans:pixelsize=9',
 
-own_window_colour 000000
-TEXT
+	own_window_colour = '#000000',
+};
+
+conky.text = [[
 
 ${if_running spotify}
 
 ${color #fff}${font Gotham Book:pixelsize=18}NOW PLAYING:
 ${color #fff}${font Gotham Book:pixelsize=15}
 
-${color #fff}${font Gotham Bold:pixelsize=44}           ${font Gotham Bold:pixelsize=46}${exec echo `dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'Metadata'|egrep -A 2 "artist"|egrep -v "artist"|egrep -v "array"|cut -b 27-|cut -d '"' -f 1|egrep -v ^$`}${font Gotham Bold:pixelsize=10}
-${color #fff}${font Gotham Book:pixelsize=44}           ${font Gotham Book:pixelsize=23}${exec echo `dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'Metadata'|egrep -A 1 "title"|egrep -v "title"|cut -b 44-|cut -d '"' -f 1|egrep -v ^$`}
+${color #fff}${font Gotham Bold:pixelsize=44}           ${font Gotham Bold:pixelsize=46}${exec playerctl -p spotify metadata artist}${font Gotham Bold:pixelsize=10}
+${color #fff}${font Gotham Book:pixelsize=44}           ${font Gotham Book:pixelsize=23}${exec playerctl -p spotify metadata title}
 ${else}
 
 ${if_running cmus}
@@ -64,3 +65,4 @@ ${font Gotham Book:pixelsize=45}
 
 ${color #fff}${font Gotham Book:pixelsize=80}${time %H:%M:%S}${font Gotham Book:pixelsize=65}
 ${color #fff}${font Montserrat Light:pixelsize=35}${time %B} ${time %d}${if_match ${time %d}==1}st${else}${if_match ${time %d}==2}nd${else}${if_match ${time %d}==3}rd${else}${if_match ${time %d}==4}th${else}${if_match ${time %d}==5}th${else}${if_match ${time %d}==5}th${else}${if_match ${time %d}==7}th${else}${if_match ${time %d}==8}th${else}${if_match ${time %d}==9}th${else}${if_match ${time %d}==10}th${else}${if_match ${time %d}==11}th${else}${if_match ${time %d}==12}th${else}${if_match ${time %d}==13}th${else}${if_match ${time %d}==14}th${else}${if_match ${time %d}==15}th${else}${if_match ${time %d}==16}th${else}${if_match ${time %d}==17}th${else}${if_match ${time %d}==18}th${else}${if_match ${time %d}==19}th${else}${if_match ${time %d}==20}th${else}${if_match ${time %d}==21}st${else}${if_match ${time %d}==22}nd${else}${if_match ${time %d}==23}rd${else}${if_match ${time %d}==24}th${else}${if_match ${time %d}==25}th${else}${if_match ${time %d}==26}th${else}${if_match ${time %d}==27}th${else}${if_match ${time %d}==28}th${else}${if_match ${time %d}==29}th${else}${if_match ${time %d}==30}th${else}${if_match ${time %d}==31}st${else}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif}${endif} ${time %Y}${endif}${endif}
+]];
