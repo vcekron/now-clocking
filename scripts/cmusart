@@ -10,7 +10,6 @@ fi
 
 touch "$data_file"
 
-
 url="$(cmus-remote -Q 2>/dev/null | grep 'file' | cut -d " " -f 2-)"
 content="$(cat "$data_file")"
 

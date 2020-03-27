@@ -10,9 +10,7 @@ fi
 
 touch "$data_file"
 
-test="$(playerctl -p spotify metadata mpris:artUrl)"
-
-url="$(echo "$test" | sed 's;https://open.spotify.com;http://i.scdn.co;g')"
+url="$(playerctl -p spotify metadata mpris:artUrl | sed 's;https://open.spotify.com;http://i.scdn.co;g')"
 content="$(cat "$data_file")"
 
 if [ -n "$url" ] && [ "$content" != "$url" ]; then
