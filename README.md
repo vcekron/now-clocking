@@ -8,7 +8,7 @@
 <img alt="Screenshot of spotify" src="res/now-clocking-spotify.jpg" width="438px" />
 </div>
 
-Table of contents:
+### Table of contents
 
 - [Requirements](#requirements)
   - [Packages](#packages)
@@ -17,6 +17,7 @@ Table of contents:
 - [Installation](#installation)
 - [FAQ](#faq)
 - [Credits](#credits)
+- [Join Me](#join-me)
 
 ## Requirements
 
