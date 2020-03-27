@@ -27,12 +27,12 @@ conky.config = {
 };
 
 conky.text = [[
-${if_running spotify}${exec sh "$HOME/.config/conky/now-clocking/scripts/spotifyart"}
-${image ~/Pictures/npart.jpg -p 0,0 -s 125x125 -n}
+${if_running spotify}${exec sh ./scripts/spotifyart}
+${image ./data/spotify.jpg -p 0,0 -s 125x125 -n}
 ${endif}
 
 ${if_running cmus}
-${exec sh "$HOME/.config/conky/now-clocking/scripts/cmusart"}
-${image ~/Pictures/npart2.jpg -p 0,0 -s 125x125 -n}
+${exec sh ./scripts/cmusart}
+${image ./data/cmus.jpg -p 0,0 -s 125x125 -n}
 ${endif}
 ]];

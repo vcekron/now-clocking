@@ -1,8 +1,8 @@
 #!/bin/sh
 
-data_dir="$(dirname "$0")/data"
+data_dir="$(dirname "$0")/../data"
 data_file="$data_dir/spotify-art"
-data_img="$HOME/Pictures/npart.jpg"
+data_img="$data_dir/spotify.jpg"
 
 if [ ! -d "$data_dir" ]; then
     mkdir "$data_dir"
