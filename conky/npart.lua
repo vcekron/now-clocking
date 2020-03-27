@@ -27,7 +27,6 @@ conky.config = {
 };
 
 conky.text = [[
-${exec echo $PWD}
 ${if_running spotify}${exec sh "$HOME/.config/conky/now-clocking/scripts/spotifyart"}
 ${image ~/Pictures/npart.jpg -p 0,0 -s 125x125 -n}
 ${endif}
