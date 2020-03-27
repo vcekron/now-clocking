@@ -15,7 +15,7 @@ test="$(playerctl -p spotify metadata mpris:artUrl)"
 url="$(echo "$test" | sed 's;https://open.spotify.com;http://i.scdn.co;g')"
 content="$(cat "$data_file")"
 
-if [ "$content" != "$url" ]; then
+if [ -n "$url" ] && [ "$content" != "$url" ]; then
     echo "$url" > "$data_file"
     curl -s "$url" > "$data_img"
 fi

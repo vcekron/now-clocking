@@ -14,7 +14,7 @@ touch "$data_file"
 url="$(cmus-remote -Q 2>/dev/null | grep 'file' | cut -d " " -f 2-)"
 content="$(cat "$data_file")"
 
-if [ "$content" != "$url" ]; then
+if [ -n "$url" ] && [ "$content" != "$url" ]; then
     echo "$url" > "$data_file"
     ffmpeg -y -i "$url" -an -vcodec copy "$data_img"
 fi
