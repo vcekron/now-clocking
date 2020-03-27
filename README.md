@@ -8,27 +8,63 @@
 <img alt="Screenshot of spotify" src="res/now-clocking-spotify.jpg" width="438px" />
 </div>
 
-## Outdated (below here)
+Table of contents:
 
-## Dependencies
+- [Requirements](#requirements)
+  - [Packages](#packages)
+  - [Fonts](#fonts)
+  - [Supported Players](#supported-players)
+- [Installation](#installation)
+- [FAQ](#faq)
+- [Credits](#credits)
+
+## Requirements
+
+### Packages
+
+- [conky](https://github.com/brndnmtthws/conky/)
+- [ffmpeg](https://www.ffmpeg.org/)
+- [playerctl](https://github.com/altdesktop/playerctl)
+
+> Ubuntu: `sudo apt install conky ffmpeg playerctl`
+
+> Arch: `sudo pacman -S conky ffmpeg playerctl`
+
+### Fonts
+
+- [Montserrat Light](https://fonts.google.com/specimen/Montserrat?selection.family=Montserrat:300)
+- [Gotham Bold](https://www.fontmirror.com/gotham-bold)
+- [Gotham Book](https://www.fontmirror.com/gotham-book)
+
+### Supported Players
 
 - [Spotify](https://www.spotify.com/)
 - [cmus](https://cmus.github.io/)
-- [ffmpeg](https://www.ffmpeg.org/)
-- [dbus](https://www.freedesktop.org/wiki/Software/dbus/)
 
 ## Installation
 
-1. Install the fonts "Gotham Bold", "Gotham Book", and "Montserrat Light".
-2. Copy the files `cmusart` and `spotifyart` into `~/Documents`
-3. Copy the folder `np` into your `.conky` folder.
-4. Put the Conky widget into your desktop.
-5. You might want to adjust the positioning of the widget since as said above, this widget is originally created for personal use only so I just made it specifically for my screen size, etc.
+1. Install all required [packages](#packages) & [fonts](#fonts)
+2. Clone the repo:
+```bash
+$ git clone git@github.com:Rayzr522/now-clocking.git
+```
+3. Run the `start.sh` script to start the widget (forks to background):
+```bash
+$ path/to/now-clocking/start.sh
+```
 
-## Some questions you might ask
+## FAQ
 
-**Why are there 2 Conky widgets?**
-Conky has this weird transparency issue where the album art becomes semi-transparent when the widget background is set to transparent. The album art only becomes opaque when the widget background is opaque (which of course looks really bad), so I figured out that using 2 widgets (one for the text, and another for the artwork) can solve the problem.
+> **Why are there 2 Conky widgets?**
 
-**Why separate the files used by each music player?**
-I have tried merging `cmusart` and `spotifyart` into one file, I have also tried using only one file for the artwork and the text file, but this causes a bug where the artwork always re-downloads itself every time. So I think it's better to just use 2 files (once again this was initially created for personal use only).
+Originally, this had to do with weird transparency issues in Conky that required a non-transparent album artwork. However, that has long since been patched in Conky. The widgets have remained separated, however, so as to make aligning everything easier, especially since one widget functions both as the track info *and* a clock.
+
+## Credits
+
+Huge props to the original creator, [@gamehelp16](https://github.com/gamehelp16). I used this script back in 2017/2018 and rediscovered it in 2020, and decided to rework it to be more portable, efficient, and updated to modern Conky config standards.
+
+Also huge props to Hoefler & Frere-Jones for the wonderful Gotham fonts, and Julieta Ulanovsky (and crew) for the slick Montserrat font.
+
+## Join Me
+
+[![Discord Badge](https://github.com/Rayzr522/ProjectResources/raw/master/RayzrDev/badge-small.png)](https://rayzr.dev/join)
