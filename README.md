@@ -37,6 +37,8 @@
 - [Gotham Bold](https://www.fontmirror.com/gotham-bold)
 - [Gotham Book](https://www.fontmirror.com/gotham-book)
 
+> On most Linux distros, you can just run the `./scripts/download-fonts.sh` script to download the fonts.
+
 ### Supported Players
 
 - [Spotify](https://www.spotify.com/)
@@ -44,12 +46,22 @@
 
 ## Installation
 
-1. Install all required [packages](#packages) & [fonts](#fonts)
+1. Install all required [packages](#packages):
+```bash
+# Ubuntu
+$ sudo apt install conky ffmpeg playerctl
+# Arch
+$ sudo pacman -S conky ffmpeg playerctl
+```
 2. Clone the repo:
 ```bash
 $ git clone git@github.com:Rayzr522/now-clocking.git
 ```
-3. Run the `start.sh` script to start the widget (forks to background):
+3. Ensure that all required [fonts](#fonts) are installed:
+```bash
+$ ./scripts/download-fonts.sh
+```
+4. Run the `start.sh` script to start the widget (forks to background):
 ```bash
 $ path/to/now-clocking/start.sh
 ```
