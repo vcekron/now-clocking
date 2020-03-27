@@ -20,9 +20,10 @@ conky.config = {
 	override_utf8_locale = true,
 --Setup Windows
 	own_window = true,
-	own_window_argb_visual = false,
+	own_window_argb_visual = true,
 	own_window_argb_value = 0,
-	own_window_transparent = false,
+	own_window_transparent = true,
+	draw_blended = false,
 	own_window_class = 'conky-semi',
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 	own_window_type = 'desktop',
