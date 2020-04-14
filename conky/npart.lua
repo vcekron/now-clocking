@@ -21,9 +21,8 @@ conky.config = {
     own_window_argb_visual = true,
     own_window_argb_value = 0,
     own_window_transparent = true,
-    own_window_class = 'conky-semi',
     own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-    own_window_type = 'desktop'
+    own_window_type = 'dock'
 };
 
 conky.text = [[
