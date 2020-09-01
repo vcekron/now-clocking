@@ -47,7 +47,7 @@ if [ -n "$url" ] && [ "$content" != "$expected_content" ]; then
     echo "$expected_content" > "$data_file"
     curl -s "$url" > "$data_img"
 
-    if [[ ! -z "$NOW_CLOCKING_ARTWORK_TINT" ]] && command -v convert >/dev/null; then
+    if [ ! -z "$NOW_CLOCKING_ARTWORK_TINT" ] && command -v convert >/dev/null; then
         # convert in-place
         convert "$data_img" -colorspace gray -fill "$NOW_CLOCKING_ARTWORK_TINT" -tint 100 "$data_img"
     fi

@@ -3,7 +3,7 @@
 _load_config() {
     local root_dir="$(dirname "$(realpath "$0")")"
     local config_path="$root_dir/../config.env"
-    if [[ -f "$config_path" ]]; then
+    if [ -f "$config_path" ]; then
         source "$config_path"
     fi
 }
