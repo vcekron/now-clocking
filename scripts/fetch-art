@@ -5,7 +5,7 @@ source "$base_path/load-config"
 
 source="$1"
 
-if [[ -z "$source" ]]; then
+if [ -z "$source" ]; then
     echo "No source specified!"
     exit 1
 fi
