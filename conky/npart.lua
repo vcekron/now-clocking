@@ -26,12 +26,11 @@ conky.config = {
 };
 
 conky.text = [[
-${if_running spotify}${exec sh ./scripts/spotifyart}
-${image ./data/spotify.jpg -p 0,0 -s 125x125 -n}
+${if_running spotify}${exec sh ./scripts/fetch-art spotify}
+${image ./data/spotify.png -p 0,0 -s 125x125 -n}
 ${endif}
 
-${if_running cmus}
-${exec sh ./scripts/cmusart}
-${image ./data/cmus.jpg -p 0,0 -s 125x125 -n}
+${if_running cmus}${exec sh ./scripts/fetch-art cmus}
+${image ./data/cmus.png -p 0,0 -s 125x125 -n}
 ${endif}
 ]];
