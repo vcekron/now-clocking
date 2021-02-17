@@ -35,7 +35,7 @@ conky.text = [[
 ${if_running spotify}${font Source Sans Pro:style=bold:pixelsize=20}${exec playerctl -p spotify metadata title}
 ${font Source Sans Pro:pixelsize=20}${exec playerctl -p spotify metadata artist}${font Source Sans Pro:pixelsize=16}
 
-${font Source Sans Pro:pixelsize=20}${exec playerctl -p spotify metadata album} 
+${font Source Sans Pro:pixelsize=20}${exec playerctl -p spotify metadata album}
 ${else}${if_match "" != "${exec playerctl -p vlc status}"}${color #fff}${font Gotham Book:pixelsize=18}
 ${color #fff}${font Gotham Book:pixelsize=15}
 ${color #fff}${font Gotham:style=bold:pixelsize=44}           ${font Gotham:style=bold:pixelsize=46}${exec playerctl -p vlc metadata artist}${font Gotham:style=bold:pixelsize=10}
