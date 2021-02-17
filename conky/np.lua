@@ -5,8 +5,8 @@ conky.config = {
 
     -- Positioning
     alignment = 'bottom_left',
-    gap_x = 75,
-    gap_y = -32,
+    gap_x = 100,
+    gap_y = -14,
     minimum_width = 1200,
     maximum_width = 1200,
     minimum_height = 200,
@@ -33,17 +33,17 @@ conky.config = {
 conky.text = [[
 ${if_match "" != "${exec playerctl -p spotify status}"}
 ${color #fff}${font Gotham:style=bold:pixelsize=30}           ${font Gotham:style=bold:pixelsize=20}${exec playerctl -p spotify metadata title}${font Gotham:style=bold:pixelsize=10}
-${color #fff}${font Gotham Book:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec playerctl -p spotify metadata artist}${font Gotham Book:pixelsize=33}
+${color #fff}${font Gotham Book:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec playerctl -p spotify metadata artist}${font Gotham Book:pixelsize=40}
 ${color #fff}${font Gotham Book:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec playerctl -p spotify metadata album}
 
 ${else}${if_match "" != "${exec playerctl -p vlc status}"}
 ${color #fff}${font Gotham:style=bold:pixelsize=30}           ${font Gotham:style=bold:pixelsize=20}${exec playerctl -p vlc metadata title}${font Gotham:style=bold:pixelsize=10}
-${color #fff}${font Gotham Book:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec playerctl -p vlc metadata artist}${font Gotham Book:pixelsize=33}
+${color #fff}${font Gotham Book:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec playerctl -p vlc metadata artist}${font Gotham Book:pixelsize=40}
 ${color #fff}${font Gotham Book:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec playerctl -p vlc metadata album}
 
 ${else}${if_match "" != "${exec playerctl -p cmus status}"}
 ${color #fff}${font Gotham:style=bold:pixelsize=30}           ${font Gotham:style=bold:pixelsize=20}${exec cmus-remote -Q 2>/dev/null | grep 'tag artist' | cut -d " " -f 3-}${font Gotham:style=bold:pixelsize=10}
-${color #fff}${font Gotham:style=bold:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec cmus-remote -Q 2>/dev/null | grep title | cut -d " " -f 3- }${font Gotham Book:pixelsize=33}
+${color #fff}${font Gotham:style=bold:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec cmus-remote -Q 2>/dev/null | grep title | cut -d " " -f 3- }${font Gotham Book:pixelsize=40}
 ${color #fff}${font Gotham Book:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec cmus-remote -Q 2>/dev/null | grep album | cut -d " " -f 3-}
 
 ${endif}

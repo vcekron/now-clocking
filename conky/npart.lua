@@ -7,9 +7,9 @@ conky.config = {
     alignment = 'bottom_left',
     gap_x = 30,
     gap_y = 30,
-    minimum_width = 125,
-    maximum_width = 125,
-    minimum_height = 125,
+    minimum_width = 150,
+    maximum_width = 150,
+    minimum_height = 150,
 
     -- Draw settings
     double_buffer = true,
@@ -27,7 +27,7 @@ conky.config = {
 
 conky.text = [[
 ${if_match "" != "${exec playerctl -p spotify status}"}${exec ./scripts/fetch-art spotify}
-	${image ./data/spotify.png -p 0,0 -s 125x125 -n}
+	${image ./data/spotify.png -p 0,0 -s 150x150 -n}
 ${else}${if_match "" != "${exec playerctl -p vlc status}"}${exec ./scripts/fetch-art vlc}
 	${image ./data/vlc.png -p 0,0 -s 125x125 -n}
 ${else}${if_match "" != "${exec playerctl -p cmus status}"}${exec ./scripts/fetch-art cmus}
