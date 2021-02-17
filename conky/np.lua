@@ -32,21 +32,21 @@ conky.config = {
 
 conky.text = [[
 ${if_match "" != "${exec playerctl -p spotify status}"}\
-${voffset 25}\
-${offset 95}${font Liberation:style=bold:pixelsize=16}${exec playerctl -p spotify metadata title}${voffset 5}
-${offset 95}${font Liberation:pixelsize=16}${exec playerctl -p spotify metadata artist}${voffset 40}
+${voffset 22}\
+${offset 95}${font Liberation:style=bold:size=11}${exec playerctl -p spotify metadata title}${voffset 5}
+${offset 95}${font Liberation:size=11}${exec playerctl -p spotify metadata artist}${voffset 40}
 ${offset 95}${exec playerctl -p spotify metadata album}
 
 ${else}${if_match "" != "${exec playerctl -p vlc status}"}\
 ${voffset 25}\
-${offset 95}${font Liberation:style=bold:pixelsize=16}${exec playerctl -p vlc metadata title}${voffset 5}
-${offset 95}${font Liberation:pixelsize=16}${exec playerctl -p vlc metadata artist}${voffset 40}
+${offset 95}${font Liberation:style=bold:size=11}${exec playerctl -p vlc metadata title}${voffset 5}
+${offset 95}${font Liberation:size=11}${exec playerctl -p vlc metadata artist}${voffset 40}
 ${offset 95}${exec playerctl -p vlc metadata album}
 
 ${else}${if_match "" != "${exec playerctl -p cmus status}"}\
 ${voffset 25}\
-${offset 95}${font Liberation:style=bold:pixelsize=16}${exec cmus-remote -Q 2>/dev/null | grep 'tag artist' | cut -d " " -f 3-}${voffset 5}
-${offset 95}${font Liberation:pixelsize=16}${exec cmus-remote -Q 2>/dev/null | grep title | cut -d " " -f 3-}${voffset 40}
+${offset 95}${font Liberation:style=bold:size=11}${exec cmus-remote -Q 2>/dev/null | grep 'tag artist' | cut -d " " -f 3-}${voffset 5}
+${offset 95}${font Liberation:size=11}${exec cmus-remote -Q 2>/dev/null | grep title | cut -d " " -f 3-}${voffset 40}
 ${offset 95}${exec cmus-remote -Q 2>/dev/null | grep album | cut -d " " -f 3-}
 
 ${endif}
