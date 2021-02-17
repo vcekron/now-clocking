@@ -29,7 +29,7 @@ conky.config = {
 conky.text = [[
 ${if_match "" != "${exec playerctl -p spotify status}"}${exec ./scripts/fetch-art spotify}
 ${if_match "Playing" == "${exec playerctl -p spotify status}"}${image ./data/spotify.png -p 0,0 -s 125x125 -n}
-	${else}${image ./data/spotify_pause.png -p 0,0 -s 125x125 -n}
+	${else}${image ./data/spotify-pause.png -p 0,0 -s 125x125 -n}
 	${endif}
 ${else}${if_match "" != "${exec playerctl -p vlc status}"}${exec ./scripts/fetch-art vlc}
 	${image ./data/vlc.png -p 0,0 -s 125x125 -n}

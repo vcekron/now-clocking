@@ -1,5 +1,7 @@
 #!/bin/bash
 
+LOCAL_PATH="${HOME}/Sync/TLDL extras/MP3s"
+
 base_path="$(dirname "$(realpath "$0")")"
 source "$base_path/load-config"
 
@@ -13,7 +15,7 @@ fi
 data_dir="$base_path/../data"
 data_file="$data_dir/$source-art"
 data_img="$data_dir/$source.png"
-data_img2="$data_dir/${source}_pause.png"
+data_img2="$data_dir/${source}-pause.png"
 
 if [ "$source" = spotify ]; then
     if ! command -v playerctl >/dev/null; then
@@ -61,4 +63,19 @@ if [ -n "$url" ] && [ "$content" != "$expected_content" ]; then
         # convert in-place
         convert "$data_img" -colorspace gray -fill "$NOW_CLOCKING_ARTWORK_TINT" -tint 100 "$data_img"
     fi
+	exit
+fi
+
+if [ ! $url ]; then
+	title=$(playerctl metadata title)
+	local_file=$(find "${LOCAL_PATH}" -name "*${title}*" -printf "%f")
+
+	if [ "$LOCAL_PATH/$localfile" != "$expected_content" ]; then
+		echo "$LOCAL_PATH/$local_file" > "$data_file"
+		ffmpeg -y -i "$LOCAL_PATH/$local_file" "$data_img" || cp ../res/wave.png "$data_img"
+
+		gm convert "$data_img" -geometry "300x300" "$data_img"
+		gm composite "$base_path/../res/pause.png" "$data_img" "$data_img2"
+	fi
+	exit
 fi
