@@ -5,11 +5,12 @@ conky.config = {
 
     -- Positioning
     alignment = 'bottom_left',
-    gap_x = 75,
-    gap_y = -32,
+	xinerama_head = 1,
+    gap_x = 158,
+    gap_y = 2,
     minimum_width = 1200,
     maximum_width = 1200,
-    minimum_height = 200,
+    minimum_height = 100,
 
     -- Draw settings
     double_buffer = true,
@@ -31,25 +32,18 @@ conky.config = {
 };
 
 conky.text = [[
-${if_match "" != "${exec playerctl -p spotify status}"}\
-${voffset 22}\
-${offset 95}${font Liberation:style=bold:size=11}${exec playerctl -p spotify metadata title}${voffset 5}
-${offset 95}${font Liberation:size=11}${exec playerctl -p spotify metadata artist}${voffset 40}
-${offset 95}${exec playerctl -p spotify metadata album}
+${if_running spotify}${font Source Sans Pro:style=bold:pixelsize=20}${exec playerctl -p spotify metadata title}
+${font Source Sans Pro:pixelsize=20}${exec playerctl -p spotify metadata artist}${font Source Sans Pro:pixelsize=16}
 
-${else}${if_match "" != "${exec playerctl -p vlc status}"}\
-${voffset 25}\
-${offset 95}${font Liberation:style=bold:size=11}${exec playerctl -p vlc metadata title}${voffset 5}
-${offset 95}${font Liberation:size=11}${exec playerctl -p vlc metadata artist}${voffset 40}
-${offset 95}${exec playerctl -p vlc metadata album}
+${font Source Sans Pro:pixelsize=20}${exec playerctl -p spotify metadata album} 
+${else}${if_match "" != "${exec playerctl -p vlc status}"}${color #fff}${font Gotham Book:pixelsize=18}
+${color #fff}${font Gotham Book:pixelsize=15}
+${color #fff}${font Gotham:style=bold:pixelsize=44}           ${font Gotham:style=bold:pixelsize=46}${exec playerctl -p vlc metadata artist}${font Gotham:style=bold:pixelsize=10}
+${color #fff}${font Gotham Book:pixelsize=44}           ${font Gotham Book:pixelsize=23}${exec playerctl -p vlc metadata title}
 
-${else}${if_match "" != "${exec playerctl -p cmus status}"}\
-${voffset 25}\
-${offset 95}${font Liberation:style=bold:size=11}${exec cmus-remote -Q 2>/dev/null | grep 'tag artist' | cut -d " " -f 3-}${voffset 5}
-${offset 95}${font Liberation:size=11}${exec cmus-remote -Q 2>/dev/null | grep title | cut -d " " -f 3-}${voffset 40}
-${offset 95}${exec cmus-remote -Q 2>/dev/null | grep album | cut -d " " -f 3-}
-
-${endif}
-${endif}
-${endif}
+${else}${if_running cmus}${color #fff}${font Gotham Book:pixelsize=18}
+${color #fff}${font Gotham Book:pixelsize=15}
+${color #fff}${font Gotham:style=bold:pixelsize=44}           ${font Gotham:style=bold:pixelsize=46}${exec cmus-remote -Q 2>/dev/null | grep 'tag artist' | cut -d " " -f 3-}${font Gotham:style=bold:pixelsize=10}
+${color #fff}${font Gotham:style=bold:pixelsize=44}           ${font Gotham Book:pixelsize=23}${exec cmus-remote -Q 2>/dev/null | grep title | cut -d " " -f 3- }
+${else}
 ]];

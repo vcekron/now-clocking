@@ -5,8 +5,9 @@ conky.config = {
 
     -- Positioning
     alignment = 'bottom_left',
-    gap_x = 30,
-    gap_y = 30,
+	xinerama_head = 1,
+    gap_x = 24,
+    gap_y = 24,
     minimum_width = 125,
     maximum_width = 125,
     minimum_height = 125,
@@ -26,8 +27,10 @@ conky.config = {
 };
 
 conky.text = [[
-${if_match "" != "${exec playerctl -p spotify status}"}${exec ./scripts/fetch-art spotify}
-	${image ./data/spotify.png -p 0,0 -s 125x125 -n}
+${if_running spotify}${exec ./scripts/fetch-art spotify}
+${if_match "Playing" == "${exec playerctl -p spotify status}"}${image ./data/spotify.png -p 0,0 -s 125x125 -n}
+	${else}${image ./data/spotify_pause.png -p 0,0 -s 125x125 -n}
+	${endif}
 ${else}${if_match "" != "${exec playerctl -p vlc status}"}${exec ./scripts/fetch-art vlc}
 	${image ./data/vlc.png -p 0,0 -s 125x125 -n}
 ${else}${if_match "" != "${exec playerctl -p cmus status}"}${exec ./scripts/fetch-art cmus}
