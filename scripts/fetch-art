@@ -66,16 +66,19 @@ if [ -n "$url" ] && [ "$content" != "$expected_content" ]; then
 	exit
 fi
 
-if [ ! $url ]; then
+if [ ! "$url" ]; then
 	title=$(playerctl metadata title)
 	local_file=$(find "${LOCAL_PATH}" -name "*${title}*" -printf "%f")
 
-	if [ "$LOCAL_PATH/$localfile" != "$expected_content" ]; then
+	if [ -n "$local_file" ] && [ "$LOCAL_PATH/$localfile" != "$expected_content" ]; then
 		echo "$LOCAL_PATH/$local_file" > "$data_file"
-		ffmpeg -y -i "$LOCAL_PATH/$local_file" "$data_img" || cp ../res/wave.png "$data_img"
+		ffmpeg -y -i "$LOCAL_PATH/$local_file" "$data_img" || cp "$base_path/../res/fallback.png" "$data_img"
 
 		gm convert "$data_img" -geometry "300x300" "$data_img"
-		gm composite "$base_path/../res/pause.png" "$data_img" "$data_img2"
+	else
+		echo "$title" > "$data_file"
+		cp "$base_path/../res/fallback.png" "$data_img"
 	fi
+	gm composite "$base_path/../res/pause.png" "$data_img" "$data_img2"
 	exit
 fi
