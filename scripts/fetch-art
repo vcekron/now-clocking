@@ -55,7 +55,7 @@ if [ -n "$url" ] && [ "$content" != "$expected_content" ]; then
     echo "$expected_content" > "$data_file"
     curl -s "$url" > "$data_img"
 
-	gm composite -verbose "$base_path/../res/pause.png" "$data_img" "$data_img2"
+	gm composite "$base_path/../res/pause.png" "$data_img" "$data_img2"
 
     if [ ! -z "$NOW_CLOCKING_ARTWORK_TINT" ] && command -v convert >/dev/null; then
         # convert in-place
