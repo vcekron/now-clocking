@@ -13,6 +13,7 @@ fi
 data_dir="$base_path/../data"
 data_file="$data_dir/$source-art"
 data_img="$data_dir/$source.png"
+data_img2="$data_dir/${source}_pause.png"
 
 if [ "$source" = spotify ]; then
     if ! command -v playerctl >/dev/null; then
@@ -53,6 +54,8 @@ expected_content="$url $NOW_CLOCKING_ARTWORK_TINT"
 if [ -n "$url" ] && [ "$content" != "$expected_content" ]; then
     echo "$expected_content" > "$data_file"
     curl -s "$url" > "$data_img"
+
+	gm composite -verbose "$data_dir/pause.png" "$data_img" "$data_img2"
 
     if [ ! -z "$NOW_CLOCKING_ARTWORK_TINT" ] && command -v convert >/dev/null; then
         # convert in-place
