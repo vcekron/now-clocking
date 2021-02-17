@@ -25,7 +25,7 @@ conky.config = {
     own_window_type = 'desktop',
 
     -- Text settings
-    uppercase = true,
+    uppercase = false,
     use_xft = true,
     override_utf8_locale = true
 };
