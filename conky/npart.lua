@@ -6,7 +6,7 @@ conky.config = {
     -- Positioning
     alignment = 'bottom_left',
     gap_x = 50,
-    gap_y = 125,
+    gap_y = 50,
     minimum_width = 125,
     maximum_width = 125,
     minimum_height = 125,
