@@ -31,7 +31,7 @@ conky.config = {
 };
 
 conky.text = [[
-${if_running spotify}
+${if_match "" != "${exec playerctl -p spotify status}"}
 ${color #fff}${font Gotham:style=bold:pixelsize=30}           ${font Gotham:style=bold:pixelsize=20}${exec playerctl -p spotify metadata title}${font Gotham:style=bold:pixelsize=10}
 ${color #fff}${font Gotham Book:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec playerctl -p spotify metadata artist}${font Gotham Book:pixelsize=33}
 ${color #fff}${font Gotham Book:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec playerctl -p spotify metadata album}
@@ -41,7 +41,7 @@ ${color #fff}${font Gotham:style=bold:pixelsize=30}           ${font Gotham:styl
 ${color #fff}${font Gotham Book:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec playerctl -p vlc metadata artist}${font Gotham Book:pixelsize=33}
 ${color #fff}${font Gotham Book:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec playerctl -p vlc metadata album}
 
-${else}${if_running cmus}
+${if_match "" != "${exec playerctl -p cmus status}"}
 ${color #fff}${font Gotham:style=bold:pixelsize=30}           ${font Gotham:style=bold:pixelsize=20}${exec cmus-remote -Q 2>/dev/null | grep 'tag artist' | cut -d " " -f 3-}${font Gotham:style=bold:pixelsize=10}
 ${color #fff}${font Gotham:style=bold:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec cmus-remote -Q 2>/dev/null | grep title | cut -d " " -f 3- }${font Gotham Book:pixelsize=33}
 ${color #fff}${font Gotham Book:pixelsize=30}           ${font Gotham Book:pixelsize=20}${exec cmus-remote -Q 2>/dev/null | grep album | cut -d " " -f 3-}
