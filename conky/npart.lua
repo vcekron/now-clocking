@@ -30,7 +30,7 @@ ${if_match "" != "${exec playerctl -p spotify status}"}${exec ./scripts/fetch-ar
 	${image ./data/spotify.png -p 0,0 -s 125x125 -n}
 ${else}${if_match "" != "${exec playerctl -p vlc status}"}${exec ./scripts/fetch-art vlc}
 	${image ./data/vlc.png -p 0,0 -s 125x125 -n}
-${if_match "" != "${exec playerctl -p cmus status}"}${exec ./scripts/fetch-art cmus}
+${else}${if_match "" != "${exec playerctl -p cmus status}"}${exec ./scripts/fetch-art cmus}
 	${image ./data/cmus.png -p 0,0 -s 125x125 -n}
 ${endif}
 ${endif}
