@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOCAL_PATH="${HOME}/Sync/TLDL extras/MP3s"
+LOCAL_PATH="${HOME}/Dropbox/TLDL extras/MP3s"
 
 base_path="$(dirname "$(realpath "$0")")"
 source "$base_path/load-config"
@@ -74,11 +74,11 @@ if [ ! "$url" ]; then
 		echo "$LOCAL_PATH/$local_file" > "$data_file"
 		ffmpeg -y -i "$LOCAL_PATH/$local_file" "$data_img" || cp "$base_path/../res/fallback.png" "$data_img"
 
-		gm convert "$data_img" -geometry "300x300" "$data_img"
+		magick convert "$data_img" -geometry "300x300" "$data_img"
 	else
 		echo "$title" > "$data_file"
 		cp "$base_path/../res/fallback.png" "$data_img"
 	fi
-	gm composite "$base_path/../res/pause.png" "$data_img" "$data_img2"
+	magick composite "$base_path/../res/pause.png" "$data_img" "$data_img2"
 	exit
 fi
