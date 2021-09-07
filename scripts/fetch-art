@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOCAL_PATH="${HOME}/Dropbox/TLDL extras/MP3s"
+LOCAL_PATH="${HOME}/Dropbox/TLDL Extras/MP3s"
 
 base_path="$(dirname "$(realpath "$0")")"
 source "$base_path/load-config"
